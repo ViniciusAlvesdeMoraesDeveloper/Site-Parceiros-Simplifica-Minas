@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+:root {
+  --light-green: #2fddc0;
+  --black-green: #0e6b5b;
+}
+html {
+    scroll-behavior: smooth;
+    transition: ease-in-out;
+}

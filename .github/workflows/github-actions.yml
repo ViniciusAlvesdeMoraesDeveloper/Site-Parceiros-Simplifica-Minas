@@ -1,0 +1,55 @@
+name: Faculdade Fame
+
+on:
+  push:
+    branches:
+      - "main"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Verificando o repositorio
+        uses: actions/checkout@v3
+
+      - name: Setup NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v2
+        with:
+          version: 9
+
+      - name: Instalando dependencias
+        run: pnpm install
+
+      - name: Rodando build do projeto
+        run: pnpm run build
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Deploy to VPS via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: 31.97.40.222
+          username: root
+          key: b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
+            QyNTUxOQAAACAj9xE7rfcHmWLEMdGox4xtx20rTQp5haw0YSeSmtUI4wAAAKBGBZKIRgWS
+            iAAAAAtzc2gtZWQyNTUxOQAAACAj9xE7rfcHmWLEMdGox4xtx20rTQp5haw0YSeSmtUI4w
+            AAAEA3rOBWdgFLH3GBp0L3L/PN2bvMGFxtz3Jj5Gsswh5hhSP3ETut9weZYsQx0ajHjG3H
+            bStNCnmFrDRhJ5Ka1QjjAAAAHWZlbGlwZTUyNC5mZXJuYW5kZXNAZ21haWwuY29t
+          port: 22
+          script: |
+            cd sites/FaculdadeFame
+            git pull origin main
+            pnpm install --prod
+            pnpm run build
+            pm2 restart 17
