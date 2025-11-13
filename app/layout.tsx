@@ -51,7 +51,7 @@ export const metadata: Metadata = {
         images: [
             {
                 url: "/header_logo.png",
-                width: 800,
+                width: 500,
                 height: 600,
                 alt: "Logo da Faculdade",
             },

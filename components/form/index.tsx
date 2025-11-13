@@ -40,22 +40,12 @@ export default function ContactForm() {
     }
 
     return (
-        <section className="py-20 bg-gray-50" id="contato">
+        <section className="py-20 bg-[#CBCDCF]" id="contato">
             <div className="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-                {/* Imagem */}
-                <div className="flex justify-center relative w-full h-[500px] rounded-2xl overflow-hidden shadow-xl">
-                    <Image
-                        src="/imgForm.jpg"
-                        alt="Entre em Contato"
-                        className="object-cover"
-                        fill
-                    />
-                </div>
-
-                {/* Formulário */}
+                {/* Formulário - AGORA NA ESQUERDA */}
                 <form
                     onSubmit={handleSubmitForm}
-                    className="bg-white shadow-2xl rounded-3xl p-12 w-full max-w-2xl mx-auto border border-gray-200"
+                    className="bg-white shadow-2xl rounded-3xl p-12 w-full max-w-2xl mx-auto border border-gray-200 order-2 md:order-1"
                 >
                     <h2 className="text-4xl font-extrabold text-gray-800 text-center mb-4">
                         Entre em Contato
@@ -76,7 +66,7 @@ export default function ContactForm() {
                                 value={formData.nome}
                                 onChange={handleChange}
                                 required
-                                className="w-full border rounded-xl px-12 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                                className="w-full border rounded-xl px-12 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-[#267F94] transition"
                             />
                         </div>
                     </div>
@@ -97,7 +87,7 @@ export default function ContactForm() {
                                     target.value = target.value.replace(/[^\d]/g, '').replace(/(\d{2})(\d)/, '($1) $2').replace(/(\d{5})(\d)/, '$1-$2').replace(/(-\d{4})\d+?$/, '$1');
                                 }}
                                 required
-                                className="w-full border rounded-xl px-12 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                                className="w-full border rounded-xl px-12 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-[#267F94] transition"
                             />
                         </div>
                     </div>
@@ -114,7 +104,7 @@ export default function ContactForm() {
                                 value={formData.email}
                                 onChange={handleChange}
                                 required
-                                className="w-full border rounded-xl px-12 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                                className="w-full border rounded-xl px-12 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-[#267F94] transition"
                             />
                         </div>
                     </div>
@@ -127,7 +117,7 @@ export default function ContactForm() {
                             title="graduação"
                             value={formData.graduado}
                             onChange={handleChange}
-                            className="w-full border rounded-xl px-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                            className="w-full border rounded-xl px-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-[#267F94] transition"
                         >
                             <option value="não">Não</option>
                             <option value="sim">Sim</option>
@@ -138,11 +128,21 @@ export default function ContactForm() {
                     <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full bg-gradient-to-r from-gray-600 to-gray-700 text-white py-4 rounded-xl text-lg font-semibold hover:from-gray-700 hover:to-gray-800 transition cursor-pointer disabled:opacity-50"
+                        className="w-full bg-gradient-to-r from-[#02483E] to-[#267F94] text-white py-4 rounded-xl text-lg font-semibold hover:from-[#02352e] hover:to-[#1e6a80] transition cursor-pointer disabled:opacity-50"
                     >
                         {isSubmitting ? "Enviando..." : "Enviar"}
                     </button>
                 </form>
+
+                {/* Imagem - AGORA NA DIREITA */}
+                <div className="flex justify-center relative w-full h-[500px] rounded-2xl overflow-hidden shadow-xl order-1 md:order-2">
+                    <Image
+                        src="/imgForm.jpg"
+                        alt="Entre em Contato"
+                        className="object-cover"
+                        fill
+                    />
+                </div>
             </div>
         </section>
     )

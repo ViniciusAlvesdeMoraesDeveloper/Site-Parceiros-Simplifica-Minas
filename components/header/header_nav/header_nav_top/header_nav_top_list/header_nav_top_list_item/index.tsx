@@ -3,6 +3,7 @@ import {ReactNode} from "react";
 export interface HeaderNavTopListItemProps {
     title: string,
     img: ReactNode
+    href?: string
 }
 
 export function HeaderNavTopListItem({img,title}: HeaderNavTopListItemProps){
