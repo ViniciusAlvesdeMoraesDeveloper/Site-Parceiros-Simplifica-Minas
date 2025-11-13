@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { User, Phone, Mail } from "lucide-react"
+import { User, Phone, Mail, Map } from "lucide-react"
 import Image from "next/image"
 
 export default function ContactForm() {
@@ -10,7 +10,10 @@ export default function ContactForm() {
         nome: "",
         telefone: "",
         email: "",
-        graduado: "sim",
+        estado: "",
+        cidade: "",
+        areaInteresse: "",
+        experiencia: "",
     })
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -22,13 +25,12 @@ export default function ContactForm() {
         setIsSubmitting(true)
 
         const whatsappNumber = "5531973334204"
-        const whatsappMessage = `Olá, meu nome é ${formData.nome}. Gostaria de mais informações sobre como me tornar parceiro da Simplifica Minas EAD. Meu e-mail é ${formData.email} e meu telefone é ${formData.telefone}. Sou graduado: ${formData.graduado}.`
+        const whatsappMessage = `Olá, meu nome é ${formData.nome}. Gostaria de mais informações sobre como me tornar parceiro da Simplifica Minas EAD. Meu e-mail é ${formData.email} e meu telefone é ${formData.telefone}. Sou de: ${formData.estado}, da cidade: ${formData.cidade}.
+        Minha área de interesse é: ${formData.areaInteresse}. Minha experiência é: ${formData.experiencia}. Aguardo o contato de vocês. Obrigado!`
 
         const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
         try {
-
             window.open(whatsappURL, "_blank")
-
             alert("Solicitação enviada com sucesso! Entraremos em contato em breve.")
         } catch (error) {
             console.error("Erro ao enviar a solicitação:", error)
@@ -42,10 +44,10 @@ export default function ContactForm() {
     return (
         <section className="py-20 bg-[#CBCDCF]" id="contato">
             <div className="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-                {/* Formulário - AGORA NA ESQUERDA */}
+                {/* Formulário */}
                 <form
                     onSubmit={handleSubmitForm}
-                    className="bg-white shadow-2xl rounded-3xl p-12 w-full max-w-2xl mx-auto border border-gray-200 order-2 md:order-1"
+                    className="bg-white p-10 rounded-2xl shadow-xl order-2 md:order-1"
                 >
                     <h2 className="text-4xl font-extrabold text-gray-800 text-center mb-4">
                         Entre em Contato
@@ -54,87 +56,180 @@ export default function ContactForm() {
                         Preencha os dados abaixo e retornaremos em breve.
                     </p>
 
-                    {/* Nome */}
-                    <div className="mb-6">
-                        <label className="block text-gray-700 mb-2 font-medium">Nome</label>
-                        <div className="relative">
-                            <User className="absolute left-3 top-3 text-gray-400" size={22} />
-                            <input
-                                type="text"
-                                name="nome"
-                                placeholder="Nome"
-                                value={formData.nome}
-                                onChange={handleChange}
-                                required
-                                className="w-full border rounded-xl px-12 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-[#267F94] transition"
-                            />
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                        {/* Coluna 1 */}
+                        <div className="space-y-6">
+                            {/* Nome */}
+                            <div>
+                                <label className="block text-gray-700 mb-2 font-medium">Nome</label>
+                                <div className="relative">
+                                    <User className="absolute left-3 top-3 text-gray-400" size={22} />
+                                    <input
+                                        type="text"
+                                        name="nome"
+                                        placeholder="Nome"
+                                        value={formData.nome}
+                                        onChange={handleChange}
+                                        required
+                                        className="w-full border rounded-xl px-12 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-[#267F94] transition"
+                                    />
+                                </div>
+                            </div>
+
+                            {/* Telefone */}
+                            <div>
+                                <label className="block text-gray-700 mb-2 font-medium">Telefone</label>
+                                <div className="relative">
+                                    <Phone className="absolute left-3 top-3 text-gray-400" size={22} />
+                                    <input
+                                        type="tel"
+                                        name="telefone"
+                                        placeholder="(XX) XXXXX-XXXX"
+                                        value={formData.telefone}
+                                        onChange={handleChange}
+                                        onInput={(e) => {
+                                            const target = e.target as HTMLInputElement;
+                                            target.value = target.value.replace(/[^\d]/g, '').replace(/(\d{2})(\d)/, '($1) $2').replace(/(\d{5})(\d)/, '$1-$2').replace(/(-\d{4})\d+?$/, '$1');
+                                        }}
+                                        required
+                                        className="w-full border rounded-xl px-12 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-[#267F94] transition"
+                                    />
+                                </div>
+                            </div>
+
+                            {/* Email */}
+                            <div>
+                                <label className="block text-gray-700 mb-2 font-medium">E-mail</label>
+                                <div className="relative">
+                                    <Mail className="absolute left-3 top-3 text-gray-400" size={22} />
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        placeholder="email@dominio.com"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        required
+                                        className="w-full border rounded-xl px-12 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-[#267F94] transition"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Coluna 2 */}
+                        <div className="space-y-6">
+                            {/* Cidade */}
+                            <div>
+                                <label className="block text-gray-700 mb-2 font-medium">Cidade</label>
+                                <div className="relative">
+                                    <Map className="absolute left-3 top-3 text-gray-400" size={22} />
+                                    <input
+                                        type="text"
+                                        name="cidade"
+                                        placeholder="Cidade"
+                                        value={formData.cidade}
+                                        onChange={handleChange}
+                                        required
+                                        className="w-full border rounded-xl px-12 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-[#267F94] transition"
+                                    />
+                                </div>
+                            </div>
+
+                            {/* Estado */}
+                            <div>
+                                <label className="block text-gray-700 mb-2 font-medium">Selecione seu Estado</label>
+                                <select
+                                    name="estado"
+                                    title="estado"
+                                    value={formData.estado}
+                                    onChange={handleChange}
+                                    className="w-full border rounded-xl px-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-[#267F94] transition"
+                                >
+                                    <option value="" disabled>Selecione seu Estado</option>
+                                    <option value="Acre">Acre</option>
+                                    <option value="Alagoas">Alagoas</option>
+                                    <option value="Amapá">Amapá</option>
+                                    <option value="Amazonas">Amazonas</option>
+                                    <option value="Bahia">Bahia</option>
+                                    <option value="Ceará">Ceará</option>
+                                    <option value="Distrito Federal">Distrito Federal</option>
+                                    <option value="Espírito Santo">Espírito Santo</option>
+                                    <option value="Goiás">Goiás</option>
+                                    <option value="Maranhão">Maranhão</option>
+                                    <option value="Mato Grosso">Mato Grosso</option>
+                                    <option value="Mato Grosso do Sul">Mato Grosso do Sul</option>
+                                    <option value="Minas Gerais">Minas Gerais</option>
+                                    <option value="Pará">Pará</option>
+                                    <option value="Paraíba">Paraíba</option>
+                                    <option value="Paraná">Paraná</option>
+                                    <option value="Pernambuco">Pernambuco</option>
+                                    <option value="Piauí">Piauí</option>
+                                    <option value="Rio de Janeiro">Rio de Janeiro</option>
+                                    <option value="Rio Grande do Norte">Rio Grande do Norte</option>
+                                    <option value="Rio Grande do Sul">Rio Grande do Sul</option>
+                                    <option value="Rondônia">Rondônia</option>
+                                    <option value="Roraima">Roraima</option>
+                                    <option value="Santa Catarina">Santa Catarina</option>
+                                    <option value="São Paulo">São Paulo</option>
+                                    <option value="Sergipe">Sergipe</option>
+                                    <option value="Tocantins">Tocantins</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
 
-                    {/* Telefone */}
-                    <div className="mb-6">
-                        <label className="block text-gray-700 mb-2 font-medium">Telefone</label>
-                        <div className="relative">
-                            <Phone className="absolute left-3 top-3 text-gray-400" size={22} />
-                            <input
-                                type="tel"
-                                name="telefone"
-                                placeholder="(XX) XXXXX-XXXX"
-                                value={formData.telefone}
+                    
+                    <div className="mt-6 space-y-6">
+                        {/* Área de Interesse */}
+                        <div>
+                            <label className="block text-gray-700 mb-2 font-medium">Selecione sua área de Interesse</label>
+                            <select
+                                name="areaInteresse"
+                                title="area-interesse"
+                                value={formData.areaInteresse}
                                 onChange={handleChange}
-                                onInput={(e) => {
-                                    const target = e.target as HTMLInputElement;
-                                    target.value = target.value.replace(/[^\d]/g, '').replace(/(\d{2})(\d)/, '($1) $2').replace(/(\d{5})(\d)/, '$1-$2').replace(/(-\d{4})\d+?$/, '$1');
-                                }}
-                                required
-                                className="w-full border rounded-xl px-12 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-[#267F94] transition"
-                            />
+                                className="w-full border rounded-xl px-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-[#267F94] transition"
+                            >
+                                <option value="" disabled>Selecione sua Área</option>
+                                <option value="Vendedor de Cursos EAD">Vendedor de Cursos EAD</option>
+                                <option value="Polo Pequeno (até 50 alunos)">Polo Pequeno (até 50 alunos)</option>
+                                <option value="Polo Médio (50 - 150 alunos)">Polo Médio (50 - 150 alunos)</option>
+                                <option value="Polo Grande (mais de 150 alunos)">Polo Grande (mais de 150 alunos)</option>
+                                <option value="Não sei ainda - quero orientação">Não sei ainda - quero orientação</option>
+                            </select>
                         </div>
-                    </div>
 
-                    {/* Email */}
-                    <div className="mb-6">
-                        <label className="block text-gray-700 mb-2 font-medium">E-mail</label>
-                        <div className="relative">
-                            <Mail className="absolute left-3 top-3 text-gray-400" size={22} />
-                            <input
-                                type="email"
-                                name="email"
-                                placeholder="email@dominio.com"
-                                value={formData.email}
+                        {/* Experiência */}
+                        <div>
+                            <label className="block text-gray-700 mb-2 font-medium">Sua experiência</label>
+                            <select
+                                name="experiencia"
+                                title="experiencia"
+                                value={formData.experiencia}
                                 onChange={handleChange}
-                                required
-                                className="w-full border rounded-xl px-12 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-[#267F94] transition"
-                            />
+                                className="w-full border rounded-xl px-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-[#267F94] transition"
+                            >
+                                <option value="" disabled>Selecione seu nível</option>
+                                <option value="Já trabalho com eduucação">Já trabalho com educação</option>
+                                <option value="Tenho experiência com vendas">Tenho experiência com vendas</option>
+                                <option value="Sou empreendedor">Sou empreendedor</option>
+                                <option value="Sou funcionário CLT">Sou funcionário CLT</option>
+                                <option value="Não tenho experiência na área">Não tenho experiência na área</option>
+                            </select>
                         </div>
-                    </div>
-
-                    {/* Graduado */}
-                    <div className="mb-10">
-                        <label className="block text-gray-700 mb-2 font-medium">Você é graduado?</label>
-                        <select
-                            name="graduado"
-                            title="graduação"
-                            value={formData.graduado}
-                            onChange={handleChange}
-                            className="w-full border rounded-xl px-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-[#267F94] transition"
-                        >
-                            <option value="não">Não</option>
-                            <option value="sim">Sim</option>
-                        </select>
                     </div>
 
                     {/* Botão */}
                     <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full bg-gradient-to-r from-[#02483E] to-[#267F94] text-white py-4 rounded-xl text-lg font-semibold hover:from-[#02352e] hover:to-[#1e6a80] transition cursor-pointer disabled:opacity-50"
+                        className="w-full mt-10 bg-gradient-to-r from-[#02483E] to-[#267F94] text-white py-4 rounded-xl text-lg font-semibold hover:from-[#02352e] hover:to-[#1e6a80] transition cursor-pointer disabled:opacity-50"
                     >
                         {isSubmitting ? "Enviando..." : "Enviar"}
                     </button>
                 </form>
 
-                {/* Imagem - AGORA NA DIREITA */}
+                {/* Imagem */}
                 <div className="flex justify-center relative w-full h-[500px] rounded-2xl overflow-hidden shadow-xl order-1 md:order-2">
                     <Image
                         src="/imgForm.jpg"
