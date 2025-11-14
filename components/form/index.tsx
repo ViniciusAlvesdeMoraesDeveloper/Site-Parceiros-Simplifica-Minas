@@ -24,18 +24,82 @@ export default function ContactForm() {
         if (e) e.preventDefault()
         setIsSubmitting(true)
 
-        const whatsappNumber = "5531973334204"
-        const whatsappMessage = `Olá, meu nome é ${formData.nome}. Gostaria de mais informações sobre como me tornar parceiro da Simplifica Minas EAD. Meu e-mail é ${formData.email} e meu telefone é ${formData.telefone}. Sou de: ${formData.estado}, da cidade: ${formData.cidade}.
-        Minha área de interesse é: ${formData.areaInteresse}. Minha experiência é: ${formData.experiencia}. Aguardo o contato de vocês. Obrigado!`
-
-        const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
         try {
+            
+            let registroSucesso = false
+            let totalRegistros = 0
+
+            try {
+                console.log('📝 Tentando registrar envio...')
+
+                
+                const trackPromise = fetch('/api/track', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                })
+
+                const timeoutPromise = new Promise((_, reject) =>
+                    setTimeout(() => reject(new Error('Timeout')), 5000)
+                )
+
+                const trackResponse = await Promise.race([trackPromise, timeoutPromise]) as Response
+
+                if (trackResponse.ok) {
+                    const trackData = await trackResponse.json()
+                    registroSucesso = true
+                    totalRegistros = trackData.total
+                    console.log('✅ Envio registrado. Total:', totalRegistros)
+                } else {
+                    console.warn('⚠️ API retornou erro, mas continuando...')
+                }
+            } catch (trackError) {
+                console.warn('⚠️ Erro no registro (não crítico):', trackError)
+                
+            }
+
+            
+            const whatsappNumber = "5531973334204"
+            const whatsappMessage = `Olá, meu nome é ${formData.nome}. Gostaria de mais informações sobre como me tornar parceiro da Simplifica Minas EAD. Meu e-mail é ${formData.email} e meu telefone é ${formData.telefone}. Sou de: ${formData.estado}, da cidade: ${formData.cidade}.
+Minha área de interesse é: ${formData.areaInteresse}. Minha experiência é: ${formData.experiencia}. Aguardo o contato de vocês. Obrigado!`
+
+            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
+
+            
             window.open(whatsappURL, "_blank")
-            alert("Solicitação enviada com sucesso! Entraremos em contato em breve.")
+
+           
+            if (registroSucesso) {
+                alert("Solicitação enviada com sucesso! Entraremos em contato em breve.")
+            } else {
+                alert("Solicitação enviada para o WhatsApp! Obrigado pelo seu interesse.")
+            }
+
+            
+            setFormData({
+                nome: "",
+                telefone: "",
+                email: "",
+                estado: "",
+                cidade: "",
+                areaInteresse: "",
+                experiencia: "",
+            })
+
         } catch (error) {
-            console.error("Erro ao enviar a solicitação:", error)
-            const errorMessage = error instanceof Error ? error.message : "Ocorreu um erro. Tente novamente mais tarde."
-            alert("Erro ao enviar a solicitação: " + errorMessage)
+            console.error("❌ Erro crítico ao enviar:", error)
+
+            
+            if (error instanceof Error) {
+                if (error.message.includes('Timeout')) {
+                    alert("Solicitação enviada para o WhatsApp! Pode haver um delay no sistema de registro.")
+                } else {
+                    alert("Erro ao processar o envio. Por favor, tente novamente.")
+                }
+            } else {
+                alert("Erro inesperado. Tente novamente mais tarde.")
+            }
         } finally {
             setIsSubmitting(false)
         }
@@ -48,7 +112,7 @@ export default function ContactForm() {
                 <div className="space-y-6 order-1">
                     <div className="relative w-full h-64 rounded-2xl overflow-hidden shadow-xl">
                         <Image
-                            src="/imgform.jpg" 
+                            src="/imgform.jpg"
                             alt="Imagem 1 - Parceria EAD"
                             className="object-cover"
                             fill
@@ -56,7 +120,7 @@ export default function ContactForm() {
                     </div>
                     <div className="relative w-full h-64 rounded-2xl overflow-hidden shadow-xl">
                         <Image
-                            src="/formado.png" 
+                            src="/formado.png"
                             alt="Imagem 2 - Educação Digital"
                             className="object-cover"
                             fill
@@ -136,7 +200,7 @@ export default function ContactForm() {
                             </div>
                         </div>
 
-                        
+
                         <div className="space-y-6">
                             {/* Cidade */}
                             <div>
@@ -198,7 +262,7 @@ export default function ContactForm() {
                         </div>
                     </div>
 
-                    
+
                     <div className="mt-6 space-y-6">
                         {/* Área de Interesse */}
                         <div>
@@ -253,7 +317,7 @@ export default function ContactForm() {
                 <div className="space-y-6 order-3">
                     <div className="relative w-full h-64 rounded-2xl overflow-hidden shadow-xl">
                         <Image
-                            src="/atendimento.png" 
+                            src="/atendimento.png"
                             alt="Imagem 3 - Sucesso Acadêmico"
                             className="object-cover"
                             fill
@@ -261,7 +325,7 @@ export default function ContactForm() {
                     </div>
                     <div className="relative w-full h-64 rounded-2xl overflow-hidden shadow-xl">
                         <Image
-                            src="/parceria.png" 
+                            src="/parceria.png"
                             alt="Imagem 4 - Tecnologia Educacional"
                             className="object-cover"
                             fill
