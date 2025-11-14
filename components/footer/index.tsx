@@ -1,10 +1,15 @@
-"use client"
+'use client'
 
 import { Instagram, MapPin, Phone, Mail } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-export function Footer() {
+interface FooterProps {
+    onAbrirPoliticaPrivacidade?: () => void;
+    onAbrirPoliticaCookies?: () => void;
+}
+
+export function Footer({ onAbrirPoliticaPrivacidade, onAbrirPoliticaCookies }: FooterProps) {
     return (
         <footer className="bg-gray-900 text-gray-300 py-12">
             <div className="container mx-auto px-6">
@@ -76,6 +81,21 @@ export function Footer() {
                     <p className="text-sm text-gray-500">
                         © {new Date().getFullYear()} Colégio Técnico Simplifica Minas. Todos os direitos reservados.
                     </p>
+                    <div className="mt-4 space-x-4">
+                        <button
+                            onClick={onAbrirPoliticaPrivacidade}
+                            className="text-sm hover:text-white transition-colors"
+                        >
+                            Política de Privacidade
+                        </button>
+                        <span className="text-gray-500">|</span>
+                        <button
+                            onClick={onAbrirPoliticaCookies}
+                            className="text-sm hover:text-white transition-colors"
+                        >
+                            Política de Cookies
+                        </button>
+                    </div>
                 </div>
             </div>
         </footer>

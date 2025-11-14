@@ -43,16 +43,36 @@ export default function ContactForm() {
 
     return (
         <section className="py-20 bg-[#CBCDCF]" id="contato">
-            <div className="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-                {/* Formulário */}
+            <div className="container mx-auto px-6 grid md:grid-cols-3 gap-8 items-center">
+                {/* Coluna de Imagens - Lado Esquerdo */}
+                <div className="space-y-6 order-1">
+                    <div className="relative w-full h-64 rounded-2xl overflow-hidden shadow-xl">
+                        <Image
+                            src="/imgform.jpg" 
+                            alt="Imagem 1 - Parceria EAD"
+                            className="object-cover"
+                            fill
+                        />
+                    </div>
+                    <div className="relative w-full h-64 rounded-2xl overflow-hidden shadow-xl">
+                        <Image
+                            src="/formado.png" 
+                            alt="Imagem 2 - Educação Digital"
+                            className="object-cover"
+                            fill
+                        />
+                    </div>
+                </div>
+
+                {/* Formulário - Centro */}
                 <form
                     onSubmit={handleSubmitForm}
-                    className="bg-white p-10 rounded-2xl shadow-xl order-2 md:order-1"
+                    className="bg-white p-8 rounded-2xl shadow-xl order-2 md:order-2"
                 >
                     <h2 className="text-4xl font-extrabold text-gray-800 text-center mb-4">
                         Entre em Contato
                     </h2>
-                    <p className="text-center text-gray-500 mb-10 text-base">
+                    <p className="text-center text-gray-500 mb-8 text-base">
                         Preencha os dados abaixo e retornaremos em breve.
                     </p>
 
@@ -116,7 +136,7 @@ export default function ContactForm() {
                             </div>
                         </div>
 
-                        {/* Coluna 2 */}
+                        
                         <div className="space-y-6">
                             {/* Cidade */}
                             <div>
@@ -223,20 +243,30 @@ export default function ContactForm() {
                     <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full mt-10 bg-gradient-to-r from-[#02483E] to-[#267F94] text-white py-4 rounded-xl text-lg font-semibold hover:from-[#02352e] hover:to-[#1e6a80] transition cursor-pointer disabled:opacity-50"
+                        className="w-full mt-8 bg-gradient-to-r from-[#02483E] to-[#267F94] text-white py-4 rounded-xl text-lg font-semibold hover:from-[#02352e] hover:to-[#1e6a80] transition cursor-pointer disabled:opacity-50"
                     >
                         {isSubmitting ? "Enviando..." : "Enviar"}
                     </button>
                 </form>
 
-                {/* Imagem */}
-                <div className="flex justify-center relative w-full h-[500px] rounded-2xl overflow-hidden shadow-xl order-1 md:order-2">
-                    <Image
-                        src="/imgForm.jpg"
-                        alt="Entre em Contato"
-                        className="object-cover"
-                        fill
-                    />
+                {/* Coluna de Imagens - Lado Direito */}
+                <div className="space-y-6 order-3">
+                    <div className="relative w-full h-64 rounded-2xl overflow-hidden shadow-xl">
+                        <Image
+                            src="/atendimento.png" 
+                            alt="Imagem 3 - Sucesso Acadêmico"
+                            className="object-cover"
+                            fill
+                        />
+                    </div>
+                    <div className="relative w-full h-64 rounded-2xl overflow-hidden shadow-xl">
+                        <Image
+                            src="/parceria.png" 
+                            alt="Imagem 4 - Tecnologia Educacional"
+                            className="object-cover"
+                            fill
+                        />
+                    </div>
                 </div>
             </div>
         </section>

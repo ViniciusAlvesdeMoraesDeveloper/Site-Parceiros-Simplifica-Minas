@@ -8,7 +8,7 @@ export function FooterInfo() {
             <FooterInfoImage />
             <div className="w-7/12 flex flex-col gap-1 items-start justify-center">
             <h1 className="text-sm font-bold w-10/12 text-white">
-                FAME - Faculdade Mineira de Educação EAD
+                COlégio Técnico Simplifica Minas EAD
             </h1>
             <span className="text-sm tracking-tight w-10/12 text-white font-medium">
                 Transformando vidas por meio da educação a distância. Aqui, você aprende no seu ritmo, com qualidade e o apoio que precisa para conquistar seus sonhos.
