@@ -8,7 +8,7 @@ export default function PoliticaPrivacidade() {
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
             Política de Privacidade
           </h1>
-          <div className="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+          <div className="w-24 h-1 bg-green-600 mx-auto mb-6"></div>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Comprometidos com a transparência e proteção dos seus dados pessoais
           </p>
@@ -18,8 +18,8 @@ export default function PoliticaPrivacidade() {
         <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-white/60 p-8 md:p-12">
           <div className="prose prose-lg max-w-none">
             {/* Data de atualização */}
-            <div className="bg-blue-50/50 border border-blue-200 rounded-lg p-4 mb-8">
-              <p className="text-blue-800 text-sm font-medium">
+            <div className="bg-green-50/50 border border-green-200 rounded-lg p-4 mb-8">
+              <p className="text-green-800 text-sm font-medium">
                 <strong>Última atualização:</strong> {new Date().toLocaleDateString('pt-BR', {
                   day: '2-digit',
                   month: 'long',
@@ -31,8 +31,8 @@ export default function PoliticaPrivacidade() {
             {/* Seções */}
             <section className="mb-12">
               <div className="flex items-start mb-6">
-                <div className="bg-blue-100 rounded-lg p-3 mr-4 flex-shrink-0">
-                  <span className="text-blue-700 font-semibold text-lg">1</span>
+                <div className="bg-green-100 rounded-lg p-3 mr-4 flex-shrink-0">
+                  <span className="text-green-700 font-semibold text-lg">1</span>
                 </div>
                 <div>
                   <h2 className="text-2xl font-semibold text-gray-900 mb-4">
@@ -50,8 +50,8 @@ export default function PoliticaPrivacidade() {
 
             <section className="mb-12">
               <div className="flex items-start mb-6">
-                <div className="bg-blue-100 rounded-lg p-3 mr-4 flex-shrink-0">
-                  <span className="text-blue-700 font-semibold text-lg">2</span>
+                <div className="bg-green-100 rounded-lg p-3 mr-4 flex-shrink-0">
+                  <span className="text-green-700 font-semibold text-lg">2</span>
                 </div>
                 <div>
                   <h2 className="text-2xl font-semibold text-gray-900 mb-4">
@@ -59,23 +59,23 @@ export default function PoliticaPrivacidade() {
                   </h2>
                   <ul className="text-gray-700 space-y-3">
                     <li className="flex items-start">
-                      <span className="text-blue-500 mr-2">•</span>
+                      <span className="text-green-500 mr-2">•</span>
                       Informações de identificação (nome, CPF, RG, data de nascimento)
                     </li>
                     <li className="flex items-start">
-                      <span className="text-blue-500 mr-2">•</span>
+                      <span className="text-green-500 mr-2">•</span>
                       Contato (e-mail, telefone, endereço)
                     </li>
                     <li className="flex items-start">
-                      <span className="text-blue-500 mr-2">•</span>
+                      <span className="text-green-500 mr-2">•</span>
                       Dados acadêmicos (histórico escolar, matrícula)
                     </li>
                     <li className="flex items-start">
-                      <span className="text-blue-500 mr-2">•</span>
+                      <span className="text-green-500 mr-2">•</span>
                       Informações de pagamento (para fins de cobrança)
                     </li>
                     <li className="flex items-start">
-                      <span className="text-blue-500 mr-2">•</span>
+                      <span className="text-green-500 mr-2">•</span>
                       Dados de acesso (IP, navegador, páginas visitadas)
                     </li>
                   </ul>
@@ -85,8 +85,8 @@ export default function PoliticaPrivacidade() {
 
             <section className="mb-12">
               <div className="flex items-start mb-6">
-                <div className="bg-blue-100 rounded-lg p-3 mr-4 flex-shrink-0">
-                  <span className="text-blue-700 font-semibold text-lg">3</span>
+                <div className="bg-green-100 rounded-lg p-3 mr-4 flex-shrink-0">
+                  <span className="text-green-700 font-semibold text-lg">3</span>
                 </div>
                 <div>
                   <h2 className="text-2xl font-semibold text-gray-900 mb-4">
@@ -94,23 +94,23 @@ export default function PoliticaPrivacidade() {
                   </h2>
                   <ul className="text-gray-700 space-y-3">
                     <li className="flex items-start">
-                      <span className="text-blue-500 mr-2">•</span>
+                      <span className="text-green-500 mr-2">•</span>
                       Matrícula e gestão acadêmica
                     </li>
                     <li className="flex items-start">
-                      <span className="text-blue-500 mr-2">•</span>
+                      <span className="text-green-500 mr-2">•</span>
                       Comunicação institucional
                     </li>
                     <li className="flex items-start">
-                      <span className="text-blue-500 mr-2">•</span>
+                      <span className="text-green-500 mr-2">•</span>
                       Emissão de documentos e certificados
                     </li>
                     <li className="flex items-start">
-                      <span className="text-blue-500 mr-2">•</span>
+                      <span className="text-green-500 mr-2">•</span>
                       Melhoria dos serviços educacionais
                     </li>
                     <li className="flex items-start">
-                      <span className="text-blue-500 mr-2">•</span>
+                      <span className="text-green-500 mr-2">•</span>
                       Cumprimento de obrigações legais
                     </li>
                   </ul>
@@ -120,8 +120,8 @@ export default function PoliticaPrivacidade() {
 
             <section className="mb-12">
               <div className="flex items-start mb-6">
-                <div className="bg-blue-100 rounded-lg p-3 mr-4 flex-shrink-0">
-                  <span className="text-blue-700 font-semibold text-lg">4</span>
+                <div className="bg-green-100 rounded-lg p-3 mr-4 flex-shrink-0">
+                  <span className="text-green-700 font-semibold text-lg">4</span>
                 </div>
                 <div>
                   <h2 className="text-2xl font-semibold text-gray-900 mb-4">
@@ -132,19 +132,19 @@ export default function PoliticaPrivacidade() {
                   </p>
                   <ul className="text-gray-700 space-y-3">
                     <li className="flex items-start">
-                      <span className="text-blue-500 mr-2">•</span>
+                      <span className="text-green-500 mr-2">•</span>
                       Órgãos governamentais de educação (quando exigido por lei)
                     </li>
                     <li className="flex items-start">
-                      <span className="text-blue-500 mr-2">•</span>
+                      <span className="text-green-500 mr-2">•</span>
                       Parceiros tecnológicos (plataforma EAD)
                     </li>
                     <li className="flex items-start">
-                      <span className="text-blue-500 mr-2">•</span>
+                      <span className="text-green-500 mr-2">•</span>
                       Sistemas de pagamento
                     </li>
                     <li className="flex items-start">
-                      <span className="text-blue-500 mr-2">•</span>
+                      <span className="text-green-500 mr-2">•</span>
                       Empresas de correspondência (para envio de materiais)
                     </li>
                   </ul>
@@ -154,8 +154,8 @@ export default function PoliticaPrivacidade() {
 
             <section className="mb-12">
               <div className="flex items-start mb-6">
-                <div className="bg-blue-100 rounded-lg p-3 mr-4 flex-shrink-0">
-                  <span className="text-blue-700 font-semibold text-lg">5</span>
+                <div className="bg-green-100 rounded-lg p-3 mr-4 flex-shrink-0">
+                  <span className="text-green-700 font-semibold text-lg">5</span>
                 </div>
                 <div>
                   <h2 className="text-2xl font-semibold text-gray-900 mb-4">
@@ -166,23 +166,23 @@ export default function PoliticaPrivacidade() {
                   </p>
                   <ul className="text-gray-700 space-y-3">
                     <li className="flex items-start">
-                      <span className="text-blue-500 mr-2">•</span>
+                      <span className="text-green-500 mr-2">•</span>
                       Confirmar a existência de tratamento de dados
                     </li>
                     <li className="flex items-start">
-                      <span className="text-blue-500 mr-2">•</span>
+                      <span className="text-green-500 mr-2">•</span>
                       Acessar seus dados pessoais
                     </li>
                     <li className="flex items-start">
-                      <span className="text-blue-500 mr-2">•</span>
+                      <span className="text-green-500 mr-2">•</span>
                       Corrigir dados incompletos, inexatos ou desatualizados
                     </li>
                     <li className="flex items-start">
-                      <span className="text-blue-500 mr-2">•</span>
+                      <span className="text-green-500 mr-2">•</span>
                       Solicitar a eliminação de dados tratados com consentimento
                     </li>
                     <li className="flex items-start">
-                      <span className="text-blue-500 mr-2">•</span>
+                      <span className="text-green-500 mr-2">•</span>
                       Revogar o consentimento a qualquer momento
                     </li>
                   </ul>
@@ -192,8 +192,8 @@ export default function PoliticaPrivacidade() {
 
             <section className="mb-12">
               <div className="flex items-start mb-6">
-                <div className="bg-blue-100 rounded-lg p-3 mr-4 flex-shrink-0">
-                  <span className="text-blue-700 font-semibold text-lg">6</span>
+                <div className="bg-green-100 rounded-lg p-3 mr-4 flex-shrink-0">
+                  <span className="text-green-700 font-semibold text-lg">6</span>
                 </div>
                 <div>
                   <h2 className="text-2xl font-semibold text-gray-900 mb-4">
@@ -210,8 +210,8 @@ export default function PoliticaPrivacidade() {
 
             <section className="mb-12">
               <div className="flex items-start mb-6">
-                <div className="bg-blue-100 rounded-lg p-3 mr-4 flex-shrink-0">
-                  <span className="text-blue-700 font-semibold text-lg">7</span>
+                <div className="bg-green-100 rounded-lg p-3 mr-4 flex-shrink-0">
+                  <span className="text-green-700 font-semibold text-lg">7</span>
                 </div>
                 <div>
                   <h2 className="text-2xl font-semibold text-gray-900 mb-4">
@@ -224,7 +224,7 @@ export default function PoliticaPrivacidade() {
                     </p>
                     <div className="mt-4 p-4 bg-white rounded-lg border border-gray-300">
                       <p className="text-gray-900 font-semibold">
-                        <span className="text-blue-600">E-mail:</span> simplificaminas@gmail.com
+                        <span className="text-green-600">E-mail:</span> simplificaminas@gmail.com
                       </p>
                       <p className="text-gray-600 text-sm mt-2">
                         Responderemos em até 72 horas úteis
@@ -237,8 +237,8 @@ export default function PoliticaPrivacidade() {
 
             <section>
               <div className="flex items-start mb-6">
-                <div className="bg-blue-100 rounded-lg p-3 mr-4 flex-shrink-0">
-                  <span className="text-blue-700 font-semibold text-lg">8</span>
+                <div className="bg-green-100 rounded-lg p-3 mr-4 flex-shrink-0">
+                  <span className="text-green-700 font-semibold text-lg">8</span>
                 </div>
                 <div>
                   <h2 className="text-2xl font-semibold text-gray-900 mb-4">

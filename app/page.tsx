@@ -10,6 +10,7 @@ import { Footer } from "@/components/footer";
 import { X } from "lucide-react";
 import PoliticaPrivacidade from "./politica-privacidade/page";
 import PoliticaCookies from "./politica-cookies/page";
+import Fly from "@/components/fly";
 
 type ModalType = 'privacidade' | 'cookies' | null;
 
@@ -24,6 +25,7 @@ export default function Home() {
             <Header />
             <Banner />
             <About />
+            <Fly/>
             <ContactForm />
             <Footer 
                 onAbrirPoliticaPrivacidade={() => abrirModal('privacidade')}
@@ -36,14 +38,14 @@ export default function Home() {
             {modalAberto === 'privacidade' && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-opacity-50 animate-fadeIn">
                     <div className="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-hidden animate-scaleIn">
-                        <div className="flex justify-between items-center p-6 border-b bg-blue-600 text-white">
+                        <div className="flex justify-between items-center p-6 border-b bg-[#02483E] text-white">
                             <h2 className="text-2xl font-bold">
                                 Política de Privacidade
                             </h2>
                             <button
                                 onClick={fecharModal}
                                 title="politica-privacidade"
-                                className="p-2 hover:bg-blue-700 rounded-full transition-colors"
+                                className="p-2 hover:bg-gray-700 rounded-full transition-colors"
                             >
                                 <X size={24} />
                             </button>
@@ -59,7 +61,7 @@ export default function Home() {
             {modalAberto === 'cookies' && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center p-4  bg-opacity-50 animate-fadeIn">
                     <div className="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-hidden animate-scaleIn">
-                        <div className="flex justify-between items-center p-6 border-b bg-gray-600 text-white">
+                        <div className="flex justify-between items-center p-6 border-b bg-[#02483E] text-white">
                             <h2 className="text-2xl font-bold">
                                 Política de Cookies
                             </h2>

@@ -3,7 +3,7 @@ import Image from "next/image";
 export function HeaderLogoImage() {
     return (
         <Image
-            src="/logo2.png"
+            src="/header_logo.png"
             alt="Logo"
             fill
             priority

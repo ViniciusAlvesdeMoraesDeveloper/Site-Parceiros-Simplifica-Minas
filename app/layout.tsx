@@ -39,8 +39,8 @@ export const metadata: Metadata = {
         follow: true,
     },
     icons: {
-        icon: "/header_logo.png",
-        apple: "/header_logo.png",
+        icon: "/logo_branca.png",
+        apple: "/logo_branca.png",
     },
     manifest: "/manifest.json",
     openGraph: {
