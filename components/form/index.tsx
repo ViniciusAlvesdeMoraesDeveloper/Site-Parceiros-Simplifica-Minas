@@ -25,14 +25,12 @@ export default function ContactForm() {
         setIsSubmitting(true)
 
         try {
-            
             let registroSucesso = false
             let totalRegistros = 0
 
             try {
                 console.log('📝 Tentando registrar envio...')
 
-                
                 const trackPromise = fetch('/api/track', {
                     method: 'POST',
                     headers: {
@@ -56,27 +54,22 @@ export default function ContactForm() {
                 }
             } catch (trackError) {
                 console.warn('⚠️ Erro no registro (não crítico):', trackError)
-                
             }
 
-            
             const whatsappNumber = "5531973334204"
             const whatsappMessage = `Olá, meu nome é ${formData.nome}. Gostaria de mais informações sobre como me tornar parceiro da Simplifica Minas EAD. Meu e-mail é ${formData.email} e meu telefone é ${formData.telefone}. Sou de: ${formData.estado}, da cidade: ${formData.cidade}.
 Minha área de interesse é: ${formData.areaInteresse}. Minha experiência é: ${formData.experiencia}. Aguardo o contato de vocês. Obrigado!`
 
             const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
 
-            
             window.open(whatsappURL, "_blank")
 
-           
             if (registroSucesso) {
                 alert("Solicitação enviada com sucesso! Entraremos em contato em breve.")
             } else {
                 alert("Solicitação enviada para o WhatsApp! Obrigado pelo seu interesse.")
             }
 
-            
             setFormData({
                 nome: "",
                 telefone: "",
@@ -90,7 +83,6 @@ Minha área de interesse é: ${formData.areaInteresse}. Minha experiência é: $
         } catch (error) {
             console.error("❌ Erro crítico ao enviar:", error)
 
-            
             if (error instanceof Error) {
                 if (error.message.includes('Timeout')) {
                     alert("Solicitação enviada para o WhatsApp! Pode haver um delay no sistema de registro.")
@@ -181,26 +173,9 @@ Minha área de interesse é: ${formData.areaInteresse}. Minha experiência é: $
                                     />
                                 </div>
                             </div>
-
-                            {/* Email */}
-                            <div>
-                                <label className="block text-gray-700 mb-2 font-medium">E-mail</label>
-                                <div className="relative">
-                                    <Mail className="absolute left-3 top-3 text-gray-400" size={22} />
-                                    <input
-                                        type="email"
-                                        name="email"
-                                        placeholder="email@dominio.com"
-                                        value={formData.email}
-                                        onChange={handleChange}
-                                        required
-                                        className="w-full border rounded-xl px-12 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-[#267F94] transition"
-                                    />
-                                </div>
-                            </div>
                         </div>
 
-
+                        {/* Coluna 2 */}
                         <div className="space-y-6">
                             {/* Cidade */}
                             <div>
@@ -262,6 +237,22 @@ Minha área de interesse é: ${formData.areaInteresse}. Minha experiência é: $
                         </div>
                     </div>
 
+                    {/* Email - Agora ocupa largura total */}
+                    <div className="mt-6">
+                        <label className="block text-gray-700 mb-2 font-medium">E-mail</label>
+                        <div className="relative">
+                            <Mail className="absolute left-3 top-3 text-gray-400" size={22} />
+                            <input
+                                type="email"
+                                name="email"
+                                placeholder="email@dominio.com"
+                                value={formData.email}
+                                onChange={handleChange}
+                                required
+                                className="w-full border rounded-xl px-12 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-[#267F94] transition"
+                            />
+                        </div>
+                    </div>
 
                     <div className="mt-6 space-y-6">
                         {/* Área de Interesse */}

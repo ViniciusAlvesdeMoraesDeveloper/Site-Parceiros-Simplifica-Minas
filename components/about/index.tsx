@@ -53,7 +53,7 @@ export function About() {
                 title: { title: "Vantagens para Parceiros" },
                 description: {
                     description:
-                        "Como parceiro, você oferece cursos técnicos reconhecidos pelo MEC com nossa estrutura completa: material didático exclusivo, plataforma EAD de última geração, suporte pedagógico especializado e todo o respaldo institucional para expandir seu portfólio educacional sem investimentos pesados.",
+                        "Como parceiro, você oferece cursos técnicos reconhecidos pelo MEC com nossa estrutura completa: plataforma EAD de última geração, suporte pedagógico especializado e todo o respaldo institucional para expandir seu portfólio educacional sem investimentos pesados.",
                 },
             },
             img: {
