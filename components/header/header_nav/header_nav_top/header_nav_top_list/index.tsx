@@ -52,7 +52,7 @@ export function HeaderNavTopList() {
                                 rel="noopener noreferrer"
                                 className="block no-underline text-inherit"
                             >
-                                <div className="flex items-center gap-2 px-2 py-1 rounded-lg transition-all duration-300 hover:bg-gray-100 cursor-pointer">
+                                <div className="flex items-center gap-2 px-2 py-1 rounded-lg transition-all duration-300 text-white hover:bg-green-500  cursor-pointer">
                                     {option.img}
                                     <span className="text-sm font-medium">{option.title}</span>
                                 </div>
@@ -65,7 +65,7 @@ export function HeaderNavTopList() {
                 return (
                     <li key={index}>
                         <Link href={option.href} className="block no-underline text-inherit">
-                            <div className="flex items-center gap-2 px-2 py-1 rounded-lg transition-all duration-300 hover:bg-gray-100 cursor-pointer">
+                            <div className="flex items-center gap-2 px-2 py-1 rounded-lg transition-all duration-300 text-white hover:bg-green-500 cursor-pointer">
                                 {option.img}
                                 <span className="text-sm font-medium">{option.title}</span>
                             </div>

@@ -109,7 +109,7 @@ export function About() {
                 description="Conectamos instituições de ensino a oportunidades de crescimento através de parcerias estratégicas em educação técnica profissionalizante. Juntos, transformamos vidas e construímos futuros."
             />
 
-            {/* AboutInfoContainer contendo apenas o carrossel */}
+            
             <AboutInfoContainer>
                 <div className="overflow-hidden w-full" ref={emblaRef}>
                     <div className="flex">
@@ -127,7 +127,7 @@ export function About() {
                 </div>
             </AboutInfoContainer>
 
-            {/* Dots e setas movidos para fora do AboutInfoContainer */}
+            
             <div className="flex flex-col items-center gap-4 mt-6">
                 {/* Indicadores (dots) */}
                 <div className="flex justify-center gap-2">
@@ -142,7 +142,7 @@ export function About() {
                     ))}
                 </div>
 
-                {/* Setas de navegação */}
+               
                 <div className="flex justify-center gap-8">
                     <button
                         title="botão"

@@ -104,7 +104,7 @@ Minha área de interesse é: ${formData.areaInteresse}. Minha experiência é: $
                 <div className="space-y-6 order-1">
                     <div className="relative w-full h-64 rounded-2xl overflow-hidden shadow-xl">
                         <Image
-                            src="/imgform.jpg"
+                            src="/imgForm.jpg"
                             alt="Imagem 1 - Parceria EAD"
                             className="object-cover"
                             fill
@@ -298,7 +298,7 @@ Minha área de interesse é: ${formData.areaInteresse}. Minha experiência é: $
                     <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full mt-8 bg-gradient-to-r from-[#02483E] to-[#267F94] text-white py-4 rounded-xl text-lg font-semibold hover:from-[#02352e] hover:to-[#1e6a80] transition cursor-pointer disabled:opacity-50"
+                        className="w-full mt-8 bg-[#1a753c] text-white py-4 rounded-xl text-lg font-semibold hover:from-[#02352e] hover:to-[#1e6a80] transition cursor-pointer disabled:opacity-50"
                     >
                         {isSubmitting ? "Enviando..." : "Enviar"}
                     </button>

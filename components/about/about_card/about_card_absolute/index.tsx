@@ -17,7 +17,7 @@ export interface AboutCardAbsoluteProps {
 export function AboutCardAbsolute({title, description}: AboutCardAbsoluteProps) {
     return (
         <AboutCardAbsoluteContainer>
-            <h4 className="uppercase text-gray-500 mb-2">Informações Simplifica Minas</h4>
+            <h4 className="uppercase text-white mb-2">Informações Simplifica Minas</h4>
             <AboutCardAbsoluteTitle {...title}/>
             <AboutCardAbsoluteDescription {...description}/>
         </AboutCardAbsoluteContainer>

@@ -10,14 +10,13 @@ export default function CourseBanner() {
                     <div className="flex flex-col lg:flex-row">
                         
                         
-                        <div className="lg:w-2/5 flex items-center justify-center p-6 lg:p-8 bg-gradient-to-b from-blue-50 to-indigo-50">
-                            <div className="relative w-full max-w-sm">
+                        <div className="lg:w-2/3 flex items-center justify-center p-4 lg:p-8 bg-gradient-to-b from-blue-50 to-indigo-50 relative">
+                            <div >
                                 <Image
                                     src="/cursos.png"
                                     alt="Parceria em Cursos - Oportunidade para Parceiros"
-                                    width={800}
-                                    height={700}
-                                    className="w-full h-auto object-contain drop-shadow-lg"
+                                    fill
+                                    className="object-cover drop-shadow-lg"
                                     priority
                                 />
                             </div>
@@ -27,7 +26,7 @@ export default function CourseBanner() {
                         <div className="lg:w-3/5 p-8 lg:p-12 flex flex-col justify-center">
                             
                             
-                            <div className="inline-flex items-center gap-2 bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+                            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-green-900 to-green-800 text-green-200 px-4 py-2 rounded-full text-sm font-semibold mb-6">
                                 <span>⭐</span>
                                 OPORTUNIDADE PARA PARCEIROS
                             </div>
@@ -75,15 +74,15 @@ export default function CourseBanner() {
                             <div className="bg-gray-50 rounded-xl p-6 mb-8">
                                 <div className="grid grid-cols-3 gap-4 text-center">
                                     <div>
-                                        <div className="text-2xl font-bold text-blue-600">500+</div>
+                                        <div className="text-2xl font-bold text-green-600">500+</div>
                                         <div className="text-sm text-gray-600">Parceiros Ativos</div>
                                     </div>
                                     <div>
-                                        <div className="text-2xl font-bold text-green-600">R$ 2M+</div>
+                                        <div className="text-2xl font-bold text-green-800">R$ 2M+</div>
                                         <div className="text-sm text-gray-600">Em Comissões</div>
                                     </div>
                                     <div>
-                                        <div className="text-2xl font-bold text-purple-600">95%</div>
+                                        <div className="text-2xl font-bold text-green-900">95%</div>
                                         <div className="text-sm text-gray-600">Satisfação</div>
                                     </div>
                                 </div>

@@ -27,51 +27,52 @@ export function Footer({ onAbrirPoliticaPrivacidade, onAbrirPoliticaCookies }: F
                     </p>
                 </div>
 
-                {/* Informações de Contato */}
-                <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                {/* Informações de Contato - TODOS ALINHADOS NA MESMA LINHA */}
+                <div className="mt-10 grid grid-cols-1 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
                     {/* Endereço */}
                     <div className="flex flex-col items-center text-center">
-                        <div className="bg-blue-600 p-3 rounded-full mb-3">
+                        <div className="bg-green-800 p-3 rounded-full mb-3">
                             <MapPin size={20} className="text-white" />
                         </div>
-                        <h4 className="font-semibold text-white mb-2">Endereço</h4>
-                        <p className="text-sm leading-relaxed">
-                            R. Luiz Rodrigues dos Santos, 44 - Todos Os Santos<br />
+                        <h4 className="font-semibold text-white mb-2 text-sm">Endereço</h4>
+                        <p className=" leading-tight">
+                            R.Luiz Rodrigues dos Santos, 44 - Todos Os Santos<br />
                             Cel. Fabriciano - MG
                         </p>
                     </div>
 
-                    {/* Contato */}
+                    {/* Telefone */}
                     <div className="flex flex-col items-center text-center">
-                        <div className="bg-green-600 p-3 rounded-full mb-3">
+                        <div className="bg-green-700 p-3 rounded-full mb-3">
                             <Phone size={20} className="text-white" />
                         </div>
-                        <h4 className="font-semibold text-white mb-2">Telefone</h4>
-                        <p className="text-sm">+55 (31) 9733-34204</p>
+                        <h4 className="font-semibold text-white mb-2 text-sm">Telefone</h4>
+                        <p >+55 (31) 9733-34204</p>
+                    </div>
 
-                        <div className="mt-4">
-                            <div className="bg-red-600 p-3 rounded-full mb-3 inline-block">
-                                <Mail size={20} className="text-white" />
-                            </div>
-                            <h4 className="font-semibold text-white mb-2">E-mail</h4>
-                            <p className="text-sm">simplificaminas@gmail.com</p>
+                    {/* E-mail */}
+                    <div className="flex flex-col items-center text-center">
+                        <div className="bg-green-800 p-3 rounded-full mb-3">
+                            <Mail size={20} className="text-white" />
                         </div>
+                        <h4 className="font-semibold text-white mb-2 text-sm">E-mail</h4>
+                        <p className="break-words">simplificaminas@gmail.com</p>
                     </div>
 
                     {/* Redes Sociais */}
                     <div className="flex flex-col items-center text-center">
-                        <div className="bg-pink-600 p-3 rounded-full mb-3">
+                        <div className="bg-green-700 p-3 rounded-full mb-3">
                             <Instagram size={20} className="text-white" />
                         </div>
-                        <h4 className="font-semibold text-white mb-2">Siga-nos</h4>
+                        <h4 className="font-semibold text-white mb-2 text-sm">Siga-nos</h4>
                         <Link
                             href="https://www.instagram.com/simplificaminas/"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-2 hover:text-white transition-colors mt-2"
+                            className="flex items-center gap-2 hover:text-white transition-colors mt-1"
                         >
-                            <Instagram size={18} />
-                            <span className="text-sm">@simplificaminas</span>
+                            <Instagram size={16} />
+                            <span>@simplificaminas</span>
                         </Link>
                     </div>
                 </div>

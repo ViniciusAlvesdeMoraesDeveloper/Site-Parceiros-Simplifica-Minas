@@ -5,7 +5,7 @@ import {BannerFloat} from "@/components/banner/banner_image/banner_float";
 export function BannerImage() {
     return (
         <BannerImageContainer>
-            <Image alt={"Imagem de alguns estudantes formando"} src="/students.png" fill className="object-cover" />
+            <Image alt={"Imagem de alguns estudantes formando"} src="/students.webp" fill className="object-cover" />
             <BannerFloat />
         </BannerImageContainer>
     )
