@@ -13,7 +13,7 @@ export default function CourseBanner() {
                         <div className="lg:w-2/3 flex items-center justify-center p-4 lg:p-8 bg-gradient-to-b from-blue-50 to-indigo-50 relative">
                             <div >
                                 <Image
-                                    src="/cursos.png"
+                                    src="/cursos1.webp"
                                     alt="Parceria em Cursos - Oportunidade para Parceiros"
                                     fill
                                     className="object-cover drop-shadow-lg"
